@@ -10,7 +10,7 @@ numbers = [10,20,30,40]
 print(numbers[2])
 
 # 0(n) = linear 
-students = ['Ally','Cenon','Arzaga','Isip','Anthony','Pelicano','Miral','Judie','Xyrus','Nuella','Kate']
+students = ['Ally','Cenon','Arzaga','Isip','Anthony','Pelicano','Miral','Judie','Xyrus','Nuella','Kate', 'Kate']
 for student in students:
     print(student)
 
