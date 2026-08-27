@@ -32,3 +32,64 @@ Oppo = Android("Oppo","dw9qje67db420q")
 Samsung.describePhone()
 Huwawei.describePhone()
 Oppo.describePhone()
+
+# Week 7
+# Polymorphism: Many forms, a method,function,etc that can be used on many different objects
+# Class methods often use polymorphism to have the same method name with different purposes
+# class Vechile:
+#     def __init__(self, brand):
+#         self.brand = brand
+#     def description(self):
+#         print(f"This vheicle is a {self.brand}")
+# class Van(Vechile):
+#     pass
+# class Motorcycle(Vechile):
+#     def description(self):
+#         print(f"This motorcycle is a {self.brand}")
+
+# Edward = Van("Toyota")
+# Andrei = Motorcycle("Yamata")
+# Nuella = Van("Tesla")
+# Edward.description()
+# Andrei.description()
+
+
+# participants = [Edward, Andrei, Nuella]
+# for name in participants:
+#     name.description()
+
+
+# LA 3
+class Dog:
+    def __init__(self, name):
+        self.name = name
+    def speak(self):
+        print(f"{self.name}: Woof!")
+class Cat:
+    def __init__(self, name):
+        self.name = name
+    def speak(self):
+        print(f"{self.name}: Meow!")
+class Bird:
+    def __init__(self, name):
+        self.name = name
+    def speak(self):
+        print(f"{self.name}: Chirp!")
+class Fish:
+    def __init__(self, name):
+        self.name = name
+    def speak(self):
+        print(f"{self.name}: ...")
+
+def animal_sounds(animal):
+    animal.speak()
+
+Animal_dog = Dog("Golden Retiver")
+Animal_cat = Cat("Persian")
+Animal_bird = Bird("Parrot")
+Animal_fish = Fish("Salmon")
+
+animals = [Animal_dog, Animal_cat, Animal_bird, Animal_fish]
+
+for name in animals:
+    animal_sounds(name)
