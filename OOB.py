@@ -116,37 +116,37 @@
 # Bday3 = Party_foods("Futuristic","Canton")
 # print(Bday3.theme,Bday3.get_secret_food("Red Horse"),Bday3.foods())
 
-class Party:
-    def __init__(self, theme, food1, food2, food3, special_food):
-        self.theme = theme
-        self.food1 = food1
-        self.food2 = food2
-        self.food3 = food3
-        self.special_food = special_food
-        self.foods = [food1,food2,food3]
+# class Party:
+#     def __init__(self, theme, food1, food2, food3, special_food):
+#         self.theme = theme
+#         self.food1 = food1
+#         self.food2 = food2
+#         self.food3 = food3
+#         self.special_food = special_food
+#         self.foods = [food1,food2,food3]
 
-    def __secret_food(self, code):
-        if code == "Edward":
-            return "Carbonara"
-        else:
-            return "Not For You!!"
+#     def __secret_food(self, code):
+#         if code == "Edward":
+#             return "Carbonara"
+#         else:
+#             return "Not For You!!"
 
-    def list_of_foods(self, code):
-        return [self.food1,self.food2,self.food3,self.special_food,self.__secret_food(code)]
+#     def list_of_foods(self, code):
+#         return [self.food1,self.food2,self.food3,self.special_food,self.__secret_food(code)]
 
 
-Bday_1 = Party("Formal", "Lumpia", "Spaghetti", "Siomai", "Palabok")
-print("List:")
-print(Bday_1.foods)
-print(Bday_1.theme,Bday_1.list_of_foods("Edward"))
-Bday_2 = Party("Informal", "Egg", "Sopas", "Hotdog", "Canton")
-print("List:")
-print(Bday_2.foods)
-print(Bday_2.theme,Bday_2.list_of_foods("Ally"))
-Bday_3 = Party("Fantasy", "Ambrosia", "Apples of Eden", "Nirvana", "Bread")
-print("List:")
-print(Bday_3.foods)
-print(Bday_3.theme,Bday_3.list_of_foods("Zues"))
+# Bday_1 = Party("Formal", "Lumpia", "Spaghetti", "Siomai", "Palabok")
+# print("List:")
+# print(Bday_1.foods)
+# print(Bday_1.theme,Bday_1.list_of_foods("Edward"))
+# Bday_2 = Party("Informal", "Egg", "Sopas", "Hotdog", "Canton")
+# print("List:")
+# print(Bday_2.foods)
+# print(Bday_2.theme,Bday_2.list_of_foods("Ally"))
+# Bday_3 = Party("Fantasy", "Ambrosia", "Apples of Eden", "Nirvana", "Bread")
+# print("List:")
+# print(Bday_3.foods)
+# print(Bday_3.theme,Bday_3.list_of_foods("Zues"))
 
 # Bday_1 = Party("Formal", "Lumpia", "Spaghetti", "Siomai", "Palabok")
 # print(Bday_1.theme,"|", Bday_1.food1,",",Bday_1.food2,",",Bday_1.food3,", |",Bday_1.special_food,"| , |",Bday_1.get_secret_food("Edward"), "|")
@@ -154,3 +154,156 @@ print(Bday_3.theme,Bday_3.list_of_foods("Zues"))
 # print(Bday_2.theme,"|", Bday_2.food1,",",Bday_2.food2,",",Bday_2.food3,", |",Bday_2.special_food,"| , |",Bday_2.get_secret_food("Ally"), "|")
 # Bday_1 = Party("Fantasy", "Ambrosia", "Apple of Eden", "Nirvana", "Bread")
 # print(Bday_1.theme,"|", Bday_1.food1,",",Bday_1.food2,",",Bday_1.food3,", |",Bday_1.special_food,"| , |",Bday_1.get_secret_food("Xyrus"), "|")
+
+# Private Method
+
+# class SocMed:
+#     def __init__(self, username, password):
+#         self.username = username
+#         self.__password = password
+
+#     def __new_password(self, otp, current_passwprd, new_password):
+
+#         if otp == "123" and current_passwprd == self.__password:
+#             print("Password Successfully Updated!")
+
+#         else:
+#             print("Wrong Credentials! Please Try Agan!")
+
+#     def get_new_password(self, otp, current_passwprd, new_password):
+#         self.__new_password(otp, current_passwprd, new_password)
+
+# Fb = SocMed("Edward", "YaoiLover")
+# Fb.get_new_password("123","YaoiLover","Siya")
+
+# Decorator
+
+# class Lumpia:
+#     def __init__(self, meat, vegtable, seasoning):
+#         self.meat = meat
+#         self.seasoning = seasoning
+#         self.__vegtable = vegtable
+
+#     def wrapper(self, func):
+#         def ibalot(*args, **kwargs):
+#             print("Preparing...")
+#             func(*args, **kwargs)
+#             print("Done!")
+#         return ibalot
+
+# Shanghai = Lumpia("Beef Giniling", "S & P", "Potatoes & Carrots")
+# @Shanghai.wrapper
+# def seasoned(spice1, spice2):
+#     print(f"Added {spice1} and {spice2} to the filling.")
+
+# @Shanghai.wrapper
+# def sautei(ingredient):
+#     print(f"Added {ingredient}.")
+
+# seasoned("Paprika", "Turmeric")
+# print()
+# sautei("Oninon")
+
+# Abstraction
+
+# from abc import ABC, abstractmethod
+
+# class Lumpia(ABC):
+#     def __init__(self, meat, vegtable, seasoning):
+#         self.meat = meat
+#         self.seasoning = seasoning
+#         self.__vegtable = vegtable
+
+#     @abstractmethod
+#     def add_ingredtient(self, more_sahog):
+#         pass
+
+# class Lumpiang_Shanghai(Lumpia):
+#     def __init__(self, meat, vegtable, seasoning):
+#         self.meat = meat
+#         self.seasoning = seasoning
+#         self.__vegtable = vegtable
+#     def add_ingredtient(self, more_sahog):
+#         print(f"The {self.meat}, {self.seasoning}, {self.__vegtable}, and {more_sahog} for the Lumpia, is being cooked")
+
+# Pedro = Lumpiang_Shanghai("beef", "Salt", "Carrots")
+# Pedro.add_ingredtient("Onions")
+
+# LA 8
+
+from abc import ABC, abstractmethod
+
+class Hero(ABC):
+
+    def __init__(self, name, hp):
+        self.name = name
+        self.hp = hp
+
+    def introduce(self):
+        print(f"I am {self.name} with {self.hp} HP")
+
+    @abstractmethod
+    def attack(self):
+        pass
+
+    @abstractmethod
+    def ultimate(self):
+        pass
+
+class RangedHero(Hero):
+    def __init__(self, name, hp, range):
+        super().__init__(name, hp)
+        self.range = range
+
+    def attack(self, name, range):
+        print(f"I {self.name} attack from {self.range} meters away")
+
+    def ultimate(self):
+        return super().ultimate()
+
+class Archer(RangedHero):
+    def ultimate(self, ult):
+        print(f"I {self.name} cast {ult}!")
+
+class Mage(RangedHero):
+    def ultimate(self, ult):
+        print(f"I {self.name} proclaim {ult}!")
+
+class MeleeHero(Hero):
+    def __init__(self, name, hp):
+        super().__init__(name, hp)
+
+    def attack(self, name, range):
+        print(f"I {self.name} attack, from {range} meters away!")
+
+    def ultimate(self):
+        return super().ultimate()
+
+class Warrior(MeleeHero):
+    def ultimate(self, ult):
+        print(f"I {self.name} attack with {ult}!")
+
+Edward = RangedHero("Edward", 1500, 100)
+Edward.introduce()
+Edward.attack("Edward", 100)
+Edward = Archer("Edward", 1500, 100)
+Edward.ultimate("Rain of Sorrow")
+print()
+Ally = RangedHero("Ally", 1000, 75)
+Ally.introduce()
+Ally.attack("Ally", 75)
+Ally = Mage("Ally", 1000, 75)
+Ally.ultimate("Heavenly Smite")
+print()
+Bear = MeleeHero("Bearned", 10000)
+Bear.introduce()
+Bear.attack("Bearned", 10)
+Bear = Warrior("Bearned", 10000)
+Bear.ultimate("Grevious Claw")
+print()
+
+list = [Archer("Edward", 1500, 100), Mage("Ally", 1000, 75), Warrior("Bearned", 10000)]
+for i in list:
+    print(i.attack(Archer, 10))
+
+    
