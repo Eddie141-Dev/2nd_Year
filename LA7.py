@@ -80,8 +80,7 @@ while True:
         elif choice == "3":
             print(f"The total grades of all students are: {student_total_grades(grades)}")
         elif choice == "4":
-            total_students = student_list(students)
-            average = student_total_grades(grades) / total_students 
+            average = student_total_grades(grades) / 5
             print(f"The average grade of the entire class is: {average:.2f}")
         elif choice == "5":
             top_student = highest_student_grade(records)
