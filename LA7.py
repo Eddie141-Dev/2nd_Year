@@ -29,25 +29,23 @@ def highest_student_grade(student_records):
         return highest_of_remaining
                                              
 # Part D
-def student_indexing(name):
-    if not records:
-        return 0
-    records.pop()
-    result = any(name in sublist for sublist in records)
-    if result == True:
-        print(f"This student is enrolled in this class.")
-    try:
-        r, c = next((r, sublist.index(name)) for r, sublist in enumerate(records) if name in sublist)
-        print(f"Name: {records[r][c]}\nGrade: {records[r][1]}")
-    except StopIteration:
+def student_indexing(name, index=0):
+    if index >= len(records):
         print("This student is not enrolled in this class.")
+        return
+    if records[index][0].lower() == name.lower():
+        print("This student is enrolled in this class.")
+        print(f"Name: {records[index][0]}\nGrade: {records[index][1]}")
+        return
+    student_indexing(name, index + 1)
 
 # Part E
-def display(item):
-    for row in records:
-        for item in row:
-            print(item, end=' ')
-        print()
+def display(student_records):
+    if not student_records:
+        return
+    row = student_records[0]
+    print(f"{row[0]} {row[1]}")
+    display(student_records[1:])
 
 # Part G
 def student_standing(student_records):
@@ -66,7 +64,7 @@ while True:
     print("RECURSIVE STUDENT RECORD SYSTEM")
     print("="*32)
     print()
-    print("1. Display Student Records\n2. Count Students\n3. Caculate Total Grades\n4. Calculate Average Grade\n5. Find Highest Grade\n6. Seach Student\n7. Student Standing\n8. Exit\n")
+    print("1. Display Student Records\n2. Count Students\n3. Calculate Total Grades\n4. Calculate Average Grade\n5. Find Highest Grade\n6. Search Student\n7. Student Standing\n8. Exit\n")
     print("="*32)
     choice = input("Action    : ")
     if choice.isdigit():
@@ -74,28 +72,30 @@ while True:
             print("="*32)
             print("Student Record")
             print("="*32)
-            print(display(records))
+            display(records)
             print("="*32)
-        if choice == "2":
+        elif choice == "2":
             count = student_list(students)
-            print("There are", count, "students in this class")
-        if choice == "3":
+            print(f"There are {count} students in this class")
+        elif choice == "3":
             print(f"The total grades of all students are: {student_total_grades(grades)}")
-        if choice == "4":
-            total_students = len(students)
+        elif choice == "4":
+            total_students = student_list(students)
             average = student_total_grades(grades) / total_students 
-            print(f"The average grade of the entire class is: {average}")
-        if choice == "5":
+            print(f"The average grade of the entire class is: {average:.2f}")
+        elif choice == "5":
             top_student = highest_student_grade(records)
             print(f"The highest grade from this class is {top_student[1]} obtained by {top_student[0]}.")
-        if choice == "6":
+        elif choice == "6":
             name = input("Student to search: ")
             student_indexing(name)
-        if choice == "7":
+        elif choice == "7":
             student_standing(records)
-        if choice == "8":
+        elif choice == "8":
             print("Exiting...")
-            print("Exited Successfuly!")
+            print("Exited Successfully!")
             break
+        else:
+            print("Invalid Option! Choose between 1-8.")
     else:
         print("Invalid Input/Range!")
