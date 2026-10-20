@@ -139,14 +139,14 @@ class BinaryTreeApp(ctk.CTk):
             x, y, text=value,
             font=("Arial", 16, "bold"),
             fill="#123456" if value not in self.visited else "white"
-        )
+            )
 
-def preorder(self, node, result):
-    if node is None:
-        return
-    result.append(node.value)
-    self.preorder(node.left, result)
-    self.preorder(node.right, result)
+    def preorder(self, node, result):
+        if node is None:
+            return
+        result.append(node.value)
+        self.preorder(node.left, result)
+        self.preorder(node.right, result)
 
     def inorder(self, node, result):
         if node is None:
@@ -170,10 +170,10 @@ def preorder(self, node, result):
             node = queue.popleft()
             result.append(node.value)
 
-        if node.left:
-            queue.append(node.left)
-        if node.right:
-            queue.append(node.right)
+            if node.left:
+                queue.append(node.left)
+            if node.right:
+                queue.append(node.right)
 
         return result
 
@@ -228,6 +228,6 @@ def preorder(self, node, result):
         self.draw_tree()
 
 
-        if __name__ == "__main__":
-            app = BinaryTreeApp()
-            app.mainloop()
+if __name__ == "__main__":
+    app = BinaryTreeApp()
+    app.mainloop()
