@@ -28,6 +28,7 @@ class BinaryTreeApp(ctk.CTk):
         self.root_node.left.right = Node("E")
         self.root_node.right.left = Node("F")
         self.root_node.right.right = Node("G")
+        self.root_node.left.left = Node("H")
 
         self.order = []
         self.visited = []
@@ -109,14 +110,16 @@ class BinaryTreeApp(ctk.CTk):
         "D": (180, 250),
         "E": (320, 250),
         "F": (440, 250),
-        "G": (580, 250)
+        "G": (580, 250),
+        "H": (120, 340)
         }
 
         # Draw connecting lines first
         edges = [
         ("A", "B"), ("A", "C"),
-        ("B", "D"), ("B", "E"),
-        ("C", "F"), ("C", "G")
+        ("B", "D"), ("D", "H"),
+        ("B", "E"), ("C", "F"), 
+        ("C", "G")
         ]
 
         for parent, child in edges:
