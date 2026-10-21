@@ -28,7 +28,7 @@ class BinaryTreeApp(ctk.CTk):
         self.root_node.left.right = Node("E")
         self.root_node.right.left = Node("F")
         self.root_node.right.right = Node("G")
-        self.root_node.left.left = Node("H")
+        self.root_node.left.left.left = Node("H")
 
         self.order = []
         self.visited = []
@@ -84,6 +84,19 @@ class BinaryTreeApp(ctk.CTk):
         fg_color="gray"
         ).pack(side="left", padx=6)
 
+        ctk.CTkButton(
+        actions, text="Count Nodes",
+        command=self.show_node_count, width=120,
+        fg_color="#1f538d"
+        ).pack(side="left", padx=6)
+
+        self.node_count_label = ctk.CTkLabel(
+            self, text="Total Nodes in Tree: —",
+            font=ctk.CTkFont(size=14, weight="bold"),
+            text_color="#1f538d"
+        )
+        self.node_count_label.pack(pady=2)
+
         self.status = ctk.CTkLabel(
         self, text="Choose a traversal method.",
         font=ctk.CTkFont(size=15)
@@ -98,6 +111,29 @@ class BinaryTreeApp(ctk.CTk):
         self.sequence.pack(pady=(0, 12))
 
         self.draw_tree()
+
+    def count_nodes(self):
+        if not self.root_node:
+            return 0
+        
+        count = 0
+        queue = deque([self.root_node])
+        
+        while queue:
+            node = queue.popleft()
+            count += 1
+            
+            if node.left:
+                queue.append(node.left)
+            if node.right:
+                queue.append(node.right)
+                
+        return count
+
+    def show_node_count(self):
+        total = self.count_nodes()
+        self.node_count_label.configure(text=f"Total Nodes in Tree: {total}")
+        self.status.configure(text=f"Calculated node count: {total} nodes found.")
 
     def draw_tree(self):
         self.canvas.delete("all")
